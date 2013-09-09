@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##############################################################################
+#
+# Copyright (C) 2012 OpenERP - Team de Localización Argentina.
+# https://launchpad.net/~openerp-l10n-ar-localization
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/.
+#
+##############################################################################
+-->
+<openerp>
+	<data>
+		<record id="view_project_sync_form" model="ir.ui.view">
+			<field name="name">view.project.sync.form</field>
+			<field name="model">project.sync</field>
+			<field name="arch" type="xml">
+				<form string="Proyect Syncronization">
+					<field name="name"/>
+					<field name="project_id"/>
+					<field name="remote_project"/>
+					<field name="remote_server"/>
+					<field name="remote_user_id"/>
+					<field name="timestamp"/>
+					<button name="do_sync" type="object" string="Synchro"/>
+				</form>
+			</field>
+		</record>
+
+		<record id="view_project_sync_tree" model="ir.ui.view">
+			<field name="name">view.project.sync.tree</field>
+			<field name="model">project.sync</field>
+			<field name="arch" type="xml">
+				<tree string="Proyect Syncronization">
+					<field name="name"/>
+					<field name="project_id"/>
+					<field name="remote_project"/>
+				</tree>
+			</field>
+		</record>
+
+		<record id="act_project_sync" model="ir.actions.act_window">
+			<field name="name">Synchronization</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">project.sync</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Synchronization"
+			action="act_project_sync"
+			id="menu_act_project_sync"
+			parent="base.menu_definitions"/>
+
+	</data>
+</openerp>
+
